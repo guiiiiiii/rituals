@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Jenkins test"/>
+  <AppHeader title="rituals"/>
+  <Home />
+  <AppFooter />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+    <script>
+      import AppHeader from './components/common/AppHeader.vue'
+import AppFooter from './components/common/AppFooter.vue'
+
+import Home from './views/Home.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AppHeader,
+    Home,
+    AppFooter
   }
 }
-</script>
+    </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
+    <!-- #### CSS 설정 #### -->
+    <style>
+      @import './assets/css/app.css';
+      @import './assets/css/components.css';
+    </style>
