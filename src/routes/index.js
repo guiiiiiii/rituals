@@ -1,16 +1,35 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import {createRouter, createWebHistory} from 'vue-router'
 
-Vue.use(VueRouter);
-
-export default new VueRouter({
-	mode:'history', //해쉬값 제거 방식
-    routes: [{
+const routes= [
+    {
         path: '/', 
         redirect: '/home' 
-    }, {
+    }, 
+    {
         path: '/home',
-        component: () => import('../views/Main.vue'),
+        component: () => import('../views/Home.vue'),
+    },
+    {
+        path: '/login',
+        component: () => import('../views/Login.vue'),
+    },
+    {
+        path: '/register',
+        component: () => import('../views/Register.vue'),
+    },
+    {
+        path : '/404',
+        component : () => import('../views/ErrorPage.vue'),
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: "/404"
     }
-    ]
-});
+ ] ;
+
+ const router  = createRouter({
+    history : createWebHistory(),
+    routes
+ });
+
+ export default router;
